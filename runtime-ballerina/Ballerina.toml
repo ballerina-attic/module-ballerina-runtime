@@ -1,0 +1,13 @@
+[project]
+org-name = "ballerina"
+version = "@toml.version@"
+
+[platform]
+target = "java8"
+
+    [[platform.libraries]]
+    artifactId = "runtime"
+    version = "@project.version@"
+    path = "../runtime-native/build/libs/runtime-native-@project.version@.jar"
+    groupId = "ballerina"
+    modules = ["runtime"]
