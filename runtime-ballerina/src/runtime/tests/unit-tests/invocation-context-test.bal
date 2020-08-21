@@ -18,12 +18,14 @@ import ballerina/test;
 
 @test:Config {}
 function testInvocationContextId() {
+    // This will generate an ID as the invocation context gets created for the first time
     InvocationContext invocationContext1 = getInvocationContext();
     string id1 = invocationContext1.id;
+    // This invocation context should be the same as above created one without newly creating
+    // an invocation context. So the ID should be the same as above.
     InvocationContext invocationContext2 = getInvocationContext();
     string id2 = invocationContext2.id;
     test:assertEquals(id1, id2);
-    //return runtime:getInvocationContext().id;
 }
 
 @test:Config {}
