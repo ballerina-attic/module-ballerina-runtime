@@ -21,8 +21,6 @@ description = 'Ballerina - Runtime Ballerina Generator'
 
 configurations {
     jbalTools
-    runtimeBallerinaBirDir
-    runtimeBallerinaJar
 }
 
 dependencies {

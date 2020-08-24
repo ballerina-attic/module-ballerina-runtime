@@ -14,7 +14,6 @@ plugins {
 rootProject.name = 'runtime'
 include(':build-config:checkstyle')
 include ':runtime-native', ':runtime-ballerina'
-include 'runtime-native'
 
 gradleEnterprise {
     buildScan {
