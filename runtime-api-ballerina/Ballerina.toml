@@ -8,6 +8,6 @@ target = "java8"
     [[platform.libraries]]
     artifactId = "runtime"
     version = "@project.version@"
-    path = "../runtime-native/build/libs/runtime-native-@project.version@.jar"
+    path = "../runtime-api-native/build/libs/runtime-api-native-@project.version@.jar"
     groupId = "ballerina"
     modules = ["runtime"]
