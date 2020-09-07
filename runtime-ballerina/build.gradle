@@ -105,7 +105,6 @@ test {
 }
 
 task ballerinaBuild {
-    dependsOn(test)
     inputs.dir file(project.projectDir)
     finalizedBy(revertTomlFile)
 
