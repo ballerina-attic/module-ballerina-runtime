@@ -14,7 +14,6 @@ invocationContext.attributes["SERVICE_NAME"] = "HelloService";
 
 The following code snippet shows how to access the `runtime:InvocationContext` and get the data from the `attributes` map.
 ```ballerina
-runtime:InvocationContext invocationContext = runtime:getInvocationContext();
 string serviceName = runtime:getInvocationContext().attributes["SERVICE_NAME"].toString();
 ```
 
