@@ -23,5 +23,4 @@ description = 'Ballerina - Runtime Java Utils'
 
 dependencies {
     compile group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}"
-    compile group: 'org.ballerinalang', name: 'ballerina-java', version: "${ballerinaLangVersion}"
 }
