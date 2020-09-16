@@ -176,15 +176,15 @@ task ballerinaBuild {
 
         }
         // Doc creation and packing
-        exec {
-            workingDir project.projectDir
-            environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
-            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat doc ${moduleName}"
-            } else {
-                commandLine 'sh', '-c', "$distributionBinPath/ballerina doc ${moduleName}"
-            }
-        }
+        // exec {
+        //     workingDir project.projectDir
+        //     environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
+        //     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        //         commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat doc ${moduleName}"
+        //     } else {
+        //         commandLine 'sh', '-c', "$distributionBinPath/ballerina doc ${moduleName}"
+        //     }
+        // }
         copy {
             from file("$project.projectDir/target/apidocs/${moduleName}")
             into file("$project.projectDir/build/docs_parent/docs/${moduleName}")
