@@ -18,13 +18,13 @@
 
 package org.ballerinalang.stdlib.runtime.nativeimpl;
 
-import org.ballerinalang.jvm.StringUtils;
+import org.ballerinalang.jvm.api.BStringUtils;
+import org.ballerinalang.jvm.api.BValueCreator;
+import org.ballerinalang.jvm.api.values.BMap;
+import org.ballerinalang.jvm.api.values.BString;
 import org.ballerinalang.jvm.scheduling.Scheduler;
 import org.ballerinalang.jvm.scheduling.Strand;
-import org.ballerinalang.jvm.values.MapValue;
-import org.ballerinalang.jvm.values.MapValueImpl;
 import org.ballerinalang.jvm.values.ValueCreator;
-import org.ballerinalang.jvm.values.api.BString;
 
 import java.util.UUID;
 
@@ -37,7 +37,7 @@ import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_RUNTIME_PKG_ID
  */
 public class GetInvocationContext {
 
-    public static MapValue<BString, Object> getInvocationContext() {
+    public static BMap<BString, Object> getInvocationContext() {
         return getInvocationContextRecord(Scheduler.getStrand());
     }
 
@@ -47,9 +47,9 @@ public class GetInvocationContext {
     private static final String INVOCATION_ATTRIBUTES = "attributes";
     private static final ValueCreator valueCreator = ValueCreator.getValueCreator(BALLERINA_RUNTIME_PKG_ID.toString());
 
-    private static MapValue<BString, Object> getInvocationContextRecord(Strand strand) {
-        MapValue<BString, Object> invocationContext =
-                (MapValue<BString, Object>) strand.getProperty(RUNTIME_INVOCATION_CONTEXT_PROPERTY);
+    private static BMap<BString, Object> getInvocationContextRecord(Strand strand) {
+        BMap<BString, Object> invocationContext =
+                (BMap<BString, Object>) strand.getProperty(RUNTIME_INVOCATION_CONTEXT_PROPERTY);
         if (invocationContext == null) {
             invocationContext = initInvocationContext();
             strand.setProperty(RUNTIME_INVOCATION_CONTEXT_PROPERTY, invocationContext);
@@ -57,13 +57,13 @@ public class GetInvocationContext {
         return invocationContext;
     }
 
-    private static MapValue<BString, Object> initInvocationContext() {
-        MapValue<BString, Object> invocationContextInfo =
+    private static BMap<BString, Object> initInvocationContext() {
+        BMap<BString, Object> invocationContextInfo =
                 valueCreator.createRecordValue(STRUCT_TYPE_INVOCATION_CONTEXT);
         UUID invocationId = UUID.randomUUID();
-        invocationContextInfo.put(StringUtils.fromString(INVOCATION_ID_KEY),
-                                  StringUtils.fromString(invocationId.toString()));
-        invocationContextInfo.put(StringUtils.fromString(INVOCATION_ATTRIBUTES), new MapValueImpl<BString, Object>());
+        invocationContextInfo.put(BStringUtils.fromString(INVOCATION_ID_KEY),
+                                  BStringUtils.fromString(invocationId.toString()));
+        invocationContextInfo.put(BStringUtils.fromString(INVOCATION_ATTRIBUTES), BValueCreator.createMapValue());
         return invocationContextInfo;
     }
 }
