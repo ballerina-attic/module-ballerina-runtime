@@ -22,7 +22,6 @@ import ballerina/java;
 # ```
 #
 # + millis - Amount of time to sleep in milliseconds
-public function sleep(int millis) = @java:Method {
+public isolated function sleep(int millis) = @java:Method {
     'class: "org.ballerinalang.stdlib.runtime.nativeimpl.Sleep"
 } external;
-
