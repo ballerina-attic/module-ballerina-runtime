@@ -32,6 +32,6 @@ public type InvocationContext record {|
 # ```
 #
 # + return - The `runtime:InvocationContext` instance
-public function getInvocationContext() returns InvocationContext = @java:Method {
+public isolated function getInvocationContext() returns InvocationContext = @java:Method {
     'class: "org.ballerinalang.stdlib.runtime.nativeimpl.GetInvocationContext"
 } external;

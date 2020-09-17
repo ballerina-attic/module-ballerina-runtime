@@ -37,17 +37,14 @@ import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_RUNTIME_PKG_ID
  */
 public class GetInvocationContext {
 
-    public static BMap<BString, Object> getInvocationContext() {
-        return getInvocationContextRecord(Scheduler.getStrand());
-    }
-
     private static final String RUNTIME_INVOCATION_CONTEXT_PROPERTY = "RuntimeInvocationContext";
     private static final String STRUCT_TYPE_INVOCATION_CONTEXT = "InvocationContext";
     private static final String INVOCATION_ID_KEY = "id";
     private static final String INVOCATION_ATTRIBUTES = "attributes";
     private static final ValueCreator valueCreator = ValueCreator.getValueCreator(BALLERINA_RUNTIME_PKG_ID.toString());
 
-    private static BMap<BString, Object> getInvocationContextRecord(Strand strand) {
+    public synchronized static BMap<BString, Object> getInvocationContext() {
+        Strand strand = Scheduler.getStrand();
         BMap<BString, Object> invocationContext =
                 (BMap<BString, Object>) strand.getProperty(RUNTIME_INVOCATION_CONTEXT_PROPERTY);
         if (invocationContext == null) {
