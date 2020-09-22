@@ -84,7 +84,7 @@ release {
 }
 
 task build {
-    dependsOn('config-ballerina:build')
+    dependsOn('runtime-ballerina:build')
 }
 
 task codeCoverageReport(type: JacocoReport) {
