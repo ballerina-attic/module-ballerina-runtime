@@ -44,7 +44,7 @@ jobs:
                   --header 'Content-Type: application/json' \
                   --data-raw '{
                   "tag_name": "v'"$VERSION"'",
-                  "name": "module-ballerinax-runtime-v'"$VERSION"'"
+                  "name": "module-ballerina-runtime-v'"$VERSION"'"
                   }'
             - name: Post release PR
               env:
