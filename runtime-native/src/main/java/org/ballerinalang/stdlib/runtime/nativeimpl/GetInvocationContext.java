@@ -24,11 +24,12 @@ import org.ballerinalang.jvm.api.values.BMap;
 import org.ballerinalang.jvm.api.values.BString;
 import org.ballerinalang.jvm.scheduling.Scheduler;
 import org.ballerinalang.jvm.scheduling.Strand;
+import org.ballerinalang.jvm.types.BPackage;
 import org.ballerinalang.jvm.values.ValueCreator;
 
 import java.util.UUID;
 
-import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_RUNTIME_PKG_ID;
+import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX;
 
 /**
  * Extern function to get invocation context record.
@@ -41,6 +42,10 @@ public class GetInvocationContext {
     private static final String STRUCT_TYPE_INVOCATION_CONTEXT = "InvocationContext";
     private static final String INVOCATION_ID_KEY = "id";
     private static final String INVOCATION_ATTRIBUTES = "attributes";
+    private static final String PACKAGE_NAME = "runtime";
+    private static final String PACKAGE_VERSION = "0.5.1";
+    private static final BPackage BALLERINA_RUNTIME_PKG_ID = new BPackage(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME,
+            PACKAGE_VERSION);
     private static final ValueCreator valueCreator = ValueCreator.getValueCreator(BALLERINA_RUNTIME_PKG_ID.toString());
 
     public synchronized static BMap<BString, Object> getInvocationContext() {
