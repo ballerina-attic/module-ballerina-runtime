@@ -17,6 +17,6 @@
  */
 
 module io.ballerina.stdlib.runtime {
-    requires io.ballerina.jvm;
+    requires io.ballerina.runtime;
     exports org.ballerinalang.stdlib.runtime.nativeimpl;
 }
