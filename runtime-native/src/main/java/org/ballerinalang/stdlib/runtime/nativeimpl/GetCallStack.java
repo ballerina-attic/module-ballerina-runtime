@@ -33,6 +33,6 @@ public class GetCallStack {
     private static final BString EMPTY_ERROR_MESSAGE = StringUtils.fromString("");
 
     public static BArray getCallStack() {
-        return ErrorCreator.createError(StringUtils.fromString("")).getCallStack();
+        return ErrorCreator.createError(EMPTY_ERROR_MESSAGE).getCallStack();
     }
 }
