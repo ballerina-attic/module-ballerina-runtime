@@ -42,7 +42,7 @@ public class GetInvocationContext {
     private static final String INVOCATION_ID_KEY = "id";
     private static final String INVOCATION_ATTRIBUTES = "attributes";
     private static final String PACKAGE_NAME = "runtime";
-    private static final String PACKAGE_VERSION = "0.5.1";
+    private static final String PACKAGE_VERSION = "0.5.2";
     private static final Module BALLERINA_RUNTIME_PKG_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME,
             PACKAGE_VERSION);
 
