@@ -18,7 +18,6 @@
 
 package org.ballerinalang.stdlib.runtime.nativeimpl;
 
-import io.ballerina.runtime.api.Module;
 import io.ballerina.runtime.api.StringUtils;
 import io.ballerina.runtime.api.ValueCreator;
 import io.ballerina.runtime.api.values.BMap;
@@ -27,8 +26,6 @@ import io.ballerina.runtime.scheduling.Scheduler;
 import io.ballerina.runtime.scheduling.Strand;
 
 import java.util.UUID;
-
-import static io.ballerina.runtime.util.BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX;
 
 /**
  * Extern function to get invocation context record.
@@ -41,10 +38,6 @@ public class GetInvocationContext {
     private static final String STRUCT_TYPE_INVOCATION_CONTEXT = "InvocationContext";
     private static final String INVOCATION_ID_KEY = "id";
     private static final String INVOCATION_ATTRIBUTES = "attributes";
-    private static final String PACKAGE_NAME = "runtime";
-    private static final String PACKAGE_VERSION = "0.5.2";
-    private static final Module BALLERINA_RUNTIME_PKG_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME,
-            PACKAGE_VERSION);
 
     public synchronized static BMap<BString, Object> getInvocationContext() {
         Strand strand = Scheduler.getStrand();
@@ -59,7 +52,7 @@ public class GetInvocationContext {
 
     private static BMap<BString, Object> initInvocationContext() {
         BMap<BString, Object> invocationContextInfo =
-                ValueCreator.createRecordValue(BALLERINA_RUNTIME_PKG_ID, STRUCT_TYPE_INVOCATION_CONTEXT);
+                ValueCreator.createRecordValue(Constants.BALLERINA_RUNTIME_PKG_ID, STRUCT_TYPE_INVOCATION_CONTEXT);
         UUID invocationId = UUID.randomUUID();
         invocationContextInfo.put(StringUtils.fromString(INVOCATION_ID_KEY),
                                   StringUtils.fromString(invocationId.toString()));
