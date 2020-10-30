@@ -17,7 +17,7 @@
 import ballerina/test;
 
 @test:Config {}
-function testInvocationContextId() {
+isolated function testInvocationContextId() {
     // This will generate an ID as the invocation context gets created for the first time
     InvocationContext invocationContext1 = getInvocationContext();
     string id1 = invocationContext1.id;
@@ -29,10 +29,17 @@ function testInvocationContextId() {
 }
 
 @test:Config {}
-function testInvocationContextAttributes() {
+isolated function testInvocationContextAttributes() {
     InvocationContext invocationContext = getInvocationContext();
     invocationContext.attributes["SERVICE_NAME"] = "HelloService";
     InvocationContext invocationContext2 = getInvocationContext();
     string serviceName = invocationContext2.attributes["SERVICE_NAME"].toString();
     test:assertEquals(serviceName, "HelloService");
+}
+
+@test:Config {}
+isolated function getCallStackTest() {
+    CallStackElement[] callStack = getCallStack();
+    test:assertEquals(callStack[0].toString(), "{\"callableName\":\"getCallStack\",\"moduleName\":" +
+    "\"ballerina.runtime.0_5_2.errors\",\"fileName\":\"errors.bal\",\"lineNumber\":38}");
 }
