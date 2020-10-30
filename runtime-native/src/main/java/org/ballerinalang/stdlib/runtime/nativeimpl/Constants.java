@@ -29,7 +29,7 @@ public class Constants {
     public static final Module BALLERINA_RUNTIME_PKG_ID = new Module(BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX,
             PACKAGE_NAME, PACKAGE_VERSION);
 
-    public Constants() {
+    private Constants() {
 
     }
 }
