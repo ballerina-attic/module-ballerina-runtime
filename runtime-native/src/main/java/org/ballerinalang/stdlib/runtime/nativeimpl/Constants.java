@@ -19,14 +19,14 @@
 package org.ballerinalang.stdlib.runtime.nativeimpl;
 
 import io.ballerina.runtime.api.Module;
-import io.ballerina.runtime.util.BLangConstants;
+import io.ballerina.runtime.api.constants.RuntimeConstants;
 
 public class Constants {
 
     private static final String PACKAGE_NAME = "runtime";
     public static final String CALL_STACK_ELEMENT = "CallStackElement";
     private static final String PACKAGE_VERSION = "0.5.2";
-    public static final Module BALLERINA_RUNTIME_PKG_ID = new Module(BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX,
+    public static final Module BALLERINA_RUNTIME_PKG_ID = new Module(RuntimeConstants.BALLERINA_BUILTIN_PKG_PREFIX,
             PACKAGE_NAME, PACKAGE_VERSION);
 
     private Constants() {

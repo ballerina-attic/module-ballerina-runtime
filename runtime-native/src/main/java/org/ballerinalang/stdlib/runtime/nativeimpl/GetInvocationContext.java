@@ -18,12 +18,11 @@
 
 package org.ballerinalang.stdlib.runtime.nativeimpl;
 
-import io.ballerina.runtime.api.StringUtils;
-import io.ballerina.runtime.api.ValueCreator;
+import io.ballerina.runtime.api.Environment;
+import io.ballerina.runtime.api.creators.ValueCreator;
+import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BMap;
 import io.ballerina.runtime.api.values.BString;
-import io.ballerina.runtime.scheduling.Scheduler;
-import io.ballerina.runtime.scheduling.Strand;
 
 import java.util.UUID;
 
@@ -39,13 +38,12 @@ public class GetInvocationContext {
     private static final String INVOCATION_ID_KEY = "id";
     private static final String INVOCATION_ATTRIBUTES = "attributes";
 
-    public synchronized static BMap<BString, Object> getInvocationContext() {
-        Strand strand = Scheduler.getStrand();
+    public synchronized static BMap<BString, Object> getInvocationContext(Environment env) {
         BMap<BString, Object> invocationContext =
-                (BMap<BString, Object>) strand.getProperty(RUNTIME_INVOCATION_CONTEXT_PROPERTY);
+                (BMap<BString, Object>) env.getStrandLocal(RUNTIME_INVOCATION_CONTEXT_PROPERTY);
         if (invocationContext == null) {
             invocationContext = initInvocationContext();
-            strand.setProperty(RUNTIME_INVOCATION_CONTEXT_PROPERTY, invocationContext);
+            env.setStrandLocal(RUNTIME_INVOCATION_CONTEXT_PROPERTY, invocationContext);
         }
         return invocationContext;
     }
