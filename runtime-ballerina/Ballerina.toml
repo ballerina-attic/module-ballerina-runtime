@@ -1,13 +1,10 @@
-[project]
-org-name = "ballerina"
+[package]
+org = "ballerina"
+name = "runtime"
 version = "@toml.version@"
 
-[platform]
-target = "java11"
-
-    [[platform.libraries]]
-    artifactId = "runtime"
-    version = "@project.version@"
-    path = "../runtime-native/build/libs/runtime-native-@project.version@.jar"
-    groupId = "ballerina"
-    modules = ["runtime"]
+[[platform.java11.dependency]]
+path = "../runtime-native/build/libs/runtime-native-@project.version@.jar"
+groupId = "ballerina"
+artifactId = "runtime"
+version = "@project.version@"
