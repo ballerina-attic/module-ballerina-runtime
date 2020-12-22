@@ -26,6 +26,8 @@ import io.ballerina.runtime.api.values.BString;
 
 import java.util.UUID;
 
+import static org.ballerinalang.stdlib.runtime.nativeimpl.ModuleUtils.getModule;
+
 /**
  * Extern function to get invocation context record.
  *
@@ -50,7 +52,7 @@ public class GetInvocationContext {
 
     private static BMap<BString, Object> initInvocationContext() {
         BMap<BString, Object> invocationContextInfo =
-                ValueCreator.createRecordValue(Constants.BALLERINA_RUNTIME_PKG_ID, STRUCT_TYPE_INVOCATION_CONTEXT);
+                ValueCreator.createRecordValue(getModule(), STRUCT_TYPE_INVOCATION_CONTEXT);
         UUID invocationId = UUID.randomUUID();
         invocationContextInfo.put(StringUtils.fromString(INVOCATION_ID_KEY),
                                   StringUtils.fromString(invocationId.toString()));

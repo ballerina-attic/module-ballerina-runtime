@@ -29,6 +29,8 @@ import io.ballerina.runtime.api.values.BString;
 
 import java.util.List;
 
+import static org.ballerinalang.stdlib.runtime.nativeimpl.ModuleUtils.getModule;
+
 /**
  * Native implementation for get error's call stack.
  *
@@ -40,14 +42,12 @@ public class GetCallStack {
 
     public static BArray getCallStack() {
         List<StackTraceElement> filteredStack = ErrorCreator.createError(EMPTY_ERROR_MESSAGE).getCallStack();
-        Type recordType = ValueCreator.createRecordValue(Constants.BALLERINA_RUNTIME_PKG_ID,
-                Constants.CALL_STACK_ELEMENT).getType();
+        Type recordType = ValueCreator.createRecordValue(getModule(), Constants.CALL_STACK_ELEMENT).getType();
         BArray callStack = ValueCreator.createArrayValue(TypeCreator.createArrayType(recordType));
         for (int i = 0; i < filteredStack.size(); i++) {
             Object[] values = getStackFrame(filteredStack.get(i));
             BMap<BString, Object> createRecordValue = ValueCreator.createRecordValue(ValueCreator.
-                            createRecordValue(Constants.BALLERINA_RUNTIME_PKG_ID, Constants.CALL_STACK_ELEMENT),
-                    values);
+                            createRecordValue(getModule(), Constants.CALL_STACK_ELEMENT), values);
             callStack.add(i, createRecordValue);
         }
         return callStack;
