@@ -41,5 +41,5 @@ isolated function testInvocationContextAttributes() {
 isolated function getCallStackTest() {
     CallStackElement[] callStack = getCallStack();
     test:assertEquals(callStack[0].toString(), "{\"callableName\":\"getCallStack\",\"moduleName\":" +
-    "\"ballerina.runtime.0_5_4.errors\",\"fileName\":\"errors.bal\",\"lineNumber\":38}");
+    "\"ballerina.runtime.0_5_5.errors\",\"fileName\":\"errors.bal\",\"lineNumber\":38}");
 }
