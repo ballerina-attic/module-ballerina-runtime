@@ -36,10 +36,3 @@ isolated function testInvocationContextAttributes() {
     string serviceName = invocationContext2.attributes["SERVICE_NAME"].toString();
     test:assertEquals(serviceName, "HelloService");
 }
-
-@test:Config {}
-isolated function getCallStackTest() {
-    CallStackElement[] callStack = getCallStack();
-    test:assertEquals(callStack[0].toString(), "{\"callableName\":\"getCallStack\",\"moduleName\":" +
-    "\"ballerina.runtime.0_5_5.errors\",\"fileName\":\"errors.bal\",\"lineNumber\":38}");
-}
