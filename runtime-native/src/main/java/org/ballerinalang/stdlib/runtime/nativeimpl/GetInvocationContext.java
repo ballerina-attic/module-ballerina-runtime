@@ -40,7 +40,7 @@ public class GetInvocationContext {
     private static final String INVOCATION_ID_KEY = "id";
     private static final String INVOCATION_ATTRIBUTES = "attributes";
 
-    public synchronized static BMap<BString, Object> getInvocationContext(Environment env) {
+    public static synchronized BMap<BString, Object> getInvocationContext(Environment env) {
         BMap<BString, Object> invocationContext =
                 (BMap<BString, Object>) env.getStrandLocal(RUNTIME_INVOCATION_CONTEXT_PROPERTY);
         if (invocationContext == null) {
