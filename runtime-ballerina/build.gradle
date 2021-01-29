@@ -118,10 +118,10 @@ task ballerinaBuild {
 
     def testParams = "--skip-tests"
     gradle.taskGraph.whenReady { graph ->
-        if (graph.hasTask(':xmlutils-ballerina:build')) {
+        if (graph.hasTask(':runtime-ballerina:build')) {
             ballerinaTest.enabled = false
         }
-        if (graph.hasTask(':xmlutils-ballerina:test')) {
+        if (graph.hasTask(':runtime-ballerina:test')) {
             testParams = "--code-coverage --includes=*"
         }
     }
