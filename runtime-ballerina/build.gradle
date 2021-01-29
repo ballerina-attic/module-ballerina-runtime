@@ -220,5 +220,4 @@ publishing {
 
 ballerinaBuild.dependsOn ":runtime-native:build"
 ballerinaBuild.dependsOn unpackJballerinaTools
-ballerinaBuild.dependsOn updateTomlVerions
 build.dependsOn ballerinaBuild
