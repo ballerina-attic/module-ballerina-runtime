@@ -10,7 +10,7 @@ The Runtime library is one of the standard library modules of the<a target="_bla
 
 This module provides functions to interact with the Ballerina runtime and the runtime invocation context.
 
-For more information go to [The Runtime Module](https://ballerina.io/swan-lake/learn/api-docs/ballerina/runtime/).
+For more information go to [The Runtime Module](https://ballerina.io/learn/api-docs/ballerina/runtime/).
 
 ## Issues and Projects 
 
