@@ -1,6 +1,6 @@
-## Module Overview
+## Package Overview
 
-This module provides functions to interact with the Ballerina runtime invocation context.
+This package provides functions to interact with the Ballerina runtime invocation context.
 
 #### Invocation Context
 
@@ -17,4 +17,4 @@ The following code snippet shows how to access the `runtime:InvocationContext` a
 string serviceName = runtime:getInvocationContext().attributes["SERVICE_NAME"].toString();
 ```
 
-For information on the operations, which you can perform with this module, see the below **Functions**.
+For information on the operations, which you can perform with this package, see the below **Functions**.
