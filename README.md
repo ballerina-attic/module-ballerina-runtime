@@ -6,17 +6,17 @@ Ballerina Runtime Library
   [![Github issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/io.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Fio)
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The Runtime library is one of the standard library modules of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
+The Runtime library is one of the standard library packagec of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
 
-This module provides functions to interact with the Ballerina runtime and the runtime invocation context.
+This package provides functions to interact with the Ballerina runtime and the runtime invocation context.
 
-For more information go to [The Runtime Module](https://ballerina.io/learn/api-docs/ballerina/runtime/).
+For more information go to [The Runtime Package](https://ballerina.io/learn/api-docs/ballerina/runtime/).
 
 ## Issues and Projects 
 
 Issues and Project are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library). 
 
-This repository only contains the source code for the module.
+This repository only contains the source code for the package.
 
 ## Building from the Source
 
@@ -41,7 +41,7 @@ Execute the commands below to build from source.
 
         ./gradlew clean test
 
-3. To build the module without the tests:
+3. To build the package without the tests:
 
         ./gradlew clean build -x test
 
