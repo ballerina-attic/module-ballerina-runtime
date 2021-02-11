@@ -218,7 +218,7 @@ publishing {
     }
 }
 
-ballerinaBuild.dependsOn unpackJballerinaTools
+updateTomlVersions.dependsOn unpackJballerinaTools
 ballerinaTest.dependsOn updateTomlVersions
 ballerinaTest.dependsOn initializeVariables
 ballerinaTest.dependsOn ":${packageName}-native:build"
