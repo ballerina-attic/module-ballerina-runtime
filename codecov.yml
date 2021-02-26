@@ -1,0 +1,9 @@
+fixes:
+  - "ballerina/runtime/*/::auth-runtime/"
+
+ignore:
+  - "**/tests"
+
+codecov:
+  require_ci_to_pass: no
+  
