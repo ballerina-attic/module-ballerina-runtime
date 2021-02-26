@@ -1,5 +1,5 @@
 fixes:
-  - "ballerina/runtime/*/::auth-runtime/"
+  - "ballerina/runtime/*/::runtime-ballerina/"
 
 ignore:
   - "**/tests"
